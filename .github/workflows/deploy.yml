@@ -1,0 +1,67 @@
+name: Deploy to GitHub Pages
+
+on:
+  workflow_dispatch:
+  pull_request:
+  push:
+    branches: main
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+jobs:
+  code-quality:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+      - name: Install Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: latest
+      - name: Install pnpm
+        uses: pnpm/action-setup@v4
+        with:
+          run_install: false
+      - name: Install Dependencies
+        run: pnpm install
+        # declare .env variables here
+      - name: Check Formatting
+        run: pnpm fmt
+      - name: Run Linters
+        run: pnpm lint
+
+  deploy:
+    if: ${{ github.event_name == 'push' }}
+    needs: code-quality
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+      - name: Install Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: latest
+      - name: Install pnpm
+        uses: pnpm/action-setup@v4
+        with:
+          run_install: false
+      - name: Install Dependencies
+        run: pnpm install
+        # declare .env variables here
+      - name: Build Website
+        run: pnpm build
+      - name: Set-up Pages
+        uses: actions/configure-pages@v4
+      - name: Upload Artifact
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: build
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4
