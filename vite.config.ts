@@ -5,5 +5,4 @@ import { sveltekit } from '@sveltejs/kit/vite';
 
 export default defineConfig({
 	plugins: [tailwindcss(), sveltekit(), enhancedImages()],
-	base: process.argv.includes('production') ? process.env.PUBLIC_BASE_PATH : ''
 });
