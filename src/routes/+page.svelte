@@ -1,10 +1,9 @@
 <script lang="ts">
 	import { asset } from '$app/paths';
 
+	import background from '$lib/assets/flood.jpg';
 	import nutshellBudget from '$lib/assets/graphs/nutshell_budget.jpg';
-
-	const background = asset('$lib/assets/flood.jpg');
 </script>
 
-<img src={background} alt="" class="h-auto w-full" />
+<img src={asset(background)} alt="" class="h-auto w-full" />
 <img src={asset(nutshellBudget)} alt="" class="h-auto w-full" />
