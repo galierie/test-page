@@ -4,5 +4,5 @@
 </script>
 
 <h1>Images</h1>
-<img src={background} alt="" />
-<img src={nutshellBudget} alt="" />
+<img src={background} alt="" class="w-full h-auto" />
+<img src={nutshellBudget} alt="" class="w-full h-auto" />
