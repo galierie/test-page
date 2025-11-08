@@ -1,7 +1,7 @@
 <script lang="ts">
 	import { asset } from '$app/paths';
-	import unresolvedBackground from '$lib/images/flood.jpg';
-	import unresolvedNutshellBudget from '$lib/images/graphs/nutshell_budget.jpg';
+	import unresolvedBackground from '$lib/assets/flood.jpg';
+	import unresolvedNutshellBudget from '$lib/assets/graphs/nutshell_budget.jpg';
 
 	const background = asset(unresolvedBackground);
 	const nutshellBudget = asset(unresolvedNutshellBudget);
