@@ -1,7 +1,7 @@
 <script lang="ts">
 	import { base } from '$app/paths';
-	import background from '$lib/assets/flood.jpg';
-	import nutshellBudget from '$lib/assets/graphs/nutshell_budget.jpg';
+	import background from '$lib/images/flood.jpg';
+	import nutshellBudget from '$lib/images/graphs/nutshell_budget.jpg';
 </script>
 
 <p>{base}</p>
