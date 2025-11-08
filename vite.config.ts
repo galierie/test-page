@@ -5,5 +5,5 @@ import { sveltekit } from '@sveltejs/kit/vite';
 
 export default defineConfig({
 	plugins: [tailwindcss(), sveltekit(), enhancedImages()],
-	build: { assetsInlineLimit: 0 },
+	build: { assetsInlineLimit: 0 }
 });
