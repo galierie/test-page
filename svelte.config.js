@@ -8,7 +8,7 @@ const config = {
 	preprocess: vitePreprocess(),
 	kit: {
 		adapter: adapter(),
-		paths: { base: process.argv.includes('production') ? process.env.BASE_PATH : '' }
+		paths: { base: process.argv.includes('production') ? process.env.PUBLIC_BASE_PATH : '' }
 	}
 };
 
